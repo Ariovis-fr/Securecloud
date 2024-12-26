@@ -1,0 +1,53 @@
+services:
+    mysqldb:
+        image: mysql:latest
+        container_name: mysqldb
+        volumes:
+            - mysql-data:/var/lib/mysql
+        networks:
+            - securecloud
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: securecloud
+            MYSQL_USER: securecloud
+            MYSQL_PASSWORD: securecloud
+    flaskapp:
+        container_name: flaskapp
+        build: .
+        ports:
+            - "8080:5000"
+        networks:
+            - securecloud
+        volumes:
+            - upload-data:/app/uploads
+        depends_on:
+            - mysqldb
+        environment:
+            DB_URL: mysql://securecloud:securecloud@mysqldb:3306/securecloud
+            CLIENT_ID: your-client-id
+            CLIENT_SECRET: your-client-secret
+            AUTHORITY: your-authority-url
+            SCIM_SECRET: your-scim-secret
+            REDIRECT_URI: your-url-redirect/auth/redirect
+    migrations:
+        container_name: migrations
+        build: .
+        command: ["./wait-for-it.sh", "mysqldb:3306", "--", "./migrate.sh"]
+        profiles: ["setup"]
+        networks:
+            - securecloud
+        depends_on:
+            - mysqldb
+        environment:
+            DB_URL: mysql://securecloud:securecloud@mysqldb:3306/securecloud
+
+networks:
+    securecloud:
+        driver: bridge
+        name: securecloud-network
+
+volumes:
+    mysql-data:
+        name: mysql-data-volumes
+    upload-data:
+        name: upload-data-volumes

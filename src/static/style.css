@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: "Bai Jamjuree", sans-serif;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 100%;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 2rem;
+}
+
+main {
+    margin: 2em auto;
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.upload-container {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+button {
+    background-color: #334155;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:  #334155;
+}
+
+.file-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-item {
+    position: relative; /* Allows proper positioning of the delete button */
+    background: #f5f5f5;
+    margin: 0.5em 0;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.file-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 1em 1.25em;
+    width: 100%; /* Ensures the link covers the entire block */
+    background: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.file-link:hover {
+    background-color: #e0e0e0;
+}
+
+.file-link i {
+    margin-right: 0.5em;
+    color: #888;
+    font-size: 1.2em;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #fdecea;
+}
+
+.delete-btn i {
+    font-size: 1.2em;
+}
+
+/* Header styles */
+
+header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    background-color: #334155;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-self: start; /* Ensure it sticks to the start */
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
+    justify-self: center; /* Center in the grid */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: end; /* Stick to the end */
+}
+
+.user-info img {
+    height: 50px;
+    color: #fff;
+}
+
+.user-info .logout {
+    background: #f44336;
+    color: #fff;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-info .logout:hover {
+    background: #c43b32;
+}
+
+.user-text {
+    font-size: 1rem;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 30px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .user-info img {
+        display: none;
+    }
+}

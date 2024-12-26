@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Personnel</title>
+    <link rel="stylesheet" href="static/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.17.260/pdf.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="/">
+                <img src="static/top/logo.png" alt="logo ariovis" height="50">
+            </a>
+        </div>
+        <h1>Secure Cloud</h1>
+        <div class="user-info">
+            <img src="static/top/user.svg" alt="user logo" height="50">
+            <span class="user-text">{{ user["name"] }}</span>
+            <a href="/logout" class="logout">
+                <i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-container">
+            <h2>Téléverser un fichier</h2>
+            <input type="file" id="fileInput" />
+            <button onclick="uploadFile()">Téléverser</button>
+        </div>
+        <div class="file-list">
+            <h3>Fichiers disponibles :</h3>
+            <ul id="file-list">
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <center>
+            <p>© 2024 Secure Cloud</p>
+        </center>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="static/app.js"></script>
+</body>
+</html>
