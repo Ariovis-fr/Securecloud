@@ -33,7 +33,7 @@ def logout():
 
 @auth_router.route("/index")
 def index():
-    user = idt.get_user_info(session["token"])
+    user = idt.get_user_info(session.get("token"))
     if not user:
         return redirect(url_for("auth.login"))
     return render_template("index.html", user=user)
